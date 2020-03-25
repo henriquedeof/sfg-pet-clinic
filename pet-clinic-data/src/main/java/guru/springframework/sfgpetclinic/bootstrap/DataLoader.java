@@ -45,15 +45,15 @@ public class DataLoader implements CommandLineRunner {
 
         Speciality radiology = new Speciality();
         radiology.setDescription("Radiology");
-        Speciality savedRadiology = this.specialtyService.save(radiology);
+        Speciality savedRadiology = specialtyService.save(radiology);
 
         Speciality surgery = new Speciality();
         surgery.setDescription("Surgery");
-        Speciality savedSurgery = this.specialtyService.save(surgery);
+        Speciality savedSurgery = specialtyService.save(surgery);
 
         Speciality dentistry = new Speciality();
-        dentistry.setDescription("Dentistry");
-        Speciality savedDentistry = this.specialtyService.save(dentistry);
+        dentistry.setDescription("dentistry");
+        Speciality savedDentistry = specialtyService.save(dentistry);
 
         System.out.println("============== Specialties saved ===============");
 
@@ -97,15 +97,15 @@ public class DataLoader implements CommandLineRunner {
         vet1.setFirstName("Sam");
         vet1.setLastName("Axe");
         vet1.getSpecialities().add(savedRadiology);
-        this.vetService.save(vet1);
+        vetService.save(vet1);
 
-        //---------
+        //----------------
 
         Vet vet2 = new Vet();
-        vet2.setFirstName("James");
-        vet2.setLastName("Jones");
-        vet1.getSpecialities().add(savedSurgery);
-        this.vetService.save(vet2);
+        vet2.setFirstName("Jessie");
+        vet2.setLastName("Porter");
+        vet2.getSpecialities().add(savedSurgery);
+        vetService.save(vet2);
 
         System.out.println("============== Vets saved ===============");
     }

@@ -21,4 +21,9 @@ public class OwnerController {
         return "owners/index";
     }
 
+    @RequestMapping({"/find", "/find.html"})//look at the top of the class the annotation prefixing the URI
+    public String findOwners(Model model){
+        return "notimplemented";
+    }
+
 }
