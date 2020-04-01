@@ -2,6 +2,8 @@ package guru.springframework.sfgpetclinic.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 
-public interface VetRepository extends CrudRepository<VetRepository, Long> { //I could use JpaRepository
+import guru.springframework.sfgpetclinic.model.Vet;
+
+public interface VetRepository extends CrudRepository<Vet, Long> { //I could use JpaRepository
 
 }
