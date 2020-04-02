@@ -1,14 +1,19 @@
 package guru.springframework.sfgpetclinic.bootstrap;
 
-import guru.springframework.sfgpetclinic.model.*;
+import java.time.LocalDate;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+import guru.springframework.sfgpetclinic.model.Owner;
+import guru.springframework.sfgpetclinic.model.Pet;
+import guru.springframework.sfgpetclinic.model.PetType;
+import guru.springframework.sfgpetclinic.model.Speciality;
+import guru.springframework.sfgpetclinic.model.Vet;
 import guru.springframework.sfgpetclinic.services.OwnerService;
 import guru.springframework.sfgpetclinic.services.PetTypeService;
 import guru.springframework.sfgpetclinic.services.SpecialtyService;
 import guru.springframework.sfgpetclinic.services.VetService;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -41,7 +46,7 @@ public class DataLoader implements CommandLineRunner {
         cat.setName("Cat");
         PetType savedCatPetType = this.petTypeService.save(cat);
 
-        System.out.println("============== PetTypes saved ===============");
+//        System.out.println("============== PetTypes saved ===============");
 
         Speciality radiology = new Speciality();
         radiology.setDescription("Radiology");
@@ -55,7 +60,7 @@ public class DataLoader implements CommandLineRunner {
         dentistry.setDescription("dentistry");
         Speciality savedDentistry = specialtyService.save(dentistry);
 
-        System.out.println("============== Specialties saved ===============");
+//        System.out.println("============== Specialties saved ===============");
 
         Owner owner1 = new Owner();
         owner1.setFirstName("Michael");
@@ -91,7 +96,7 @@ public class DataLoader implements CommandLineRunner {
 
         this.ownerService.save(owner2);
 
-        System.out.println("============== Owners saved ===============");
+//        System.out.println("============== Owners saved ===============");
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Sam");
@@ -107,7 +112,24 @@ public class DataLoader implements CommandLineRunner {
         vet2.getSpecialities().add(savedSurgery);
         vetService.save(vet2);
 
-        System.out.println("============== Vets saved ===============");
+//        System.out.println("============== Vets saved ===============");
+//        System.out.println("===========================================");
+        System.out.println("========================== REPOSITORIOS ====================");
+        
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>> Owner Repository <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        this.ownerService.findAll().forEach(pet -> {System.out.println("Owner Name: " + pet.getFirstName());});
+        
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>> Vet Repository <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        this.vetService.findAll().forEach(pet -> {System.out.println("Vet Name: " + pet.getFirstName());});
+        
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>> PetType Repository <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        this.petTypeService.findAll().forEach(pet -> {System.out.println("PetType Name: " + pet.getName());});
+        
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>> Specialty Repository <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
+        this.specialtyService.findAll().forEach(pet -> {System.out.println("Specialty description: " + pet.getDescription());});
+        
+        
+        
     }
 
 }

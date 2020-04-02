@@ -1,40 +1,37 @@
-package guru.springframework.sfgpetclinic.services.map;
+package guru.springframework.sfgpetclinic.repositories.map;
 
 import java.util.Set;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 
 import guru.springframework.sfgpetclinic.model.Speciality;
 import guru.springframework.sfgpetclinic.model.Vet;
 import guru.springframework.sfgpetclinic.repositories.map.interfaces.SpecialtyMap;
 import guru.springframework.sfgpetclinic.repositories.map.interfaces.VetMap;
-import guru.springframework.sfgpetclinic.services.VetService;
 
-@Service
-public class VetServiceMap implements VetService {
-	
-	private final VetMap vetMap;
+@Repository
+public class VetMapRepository extends AbstractMapRepository<Vet, Long> implements VetMap {
+
     private final SpecialtyMap specialtyMap;
-    
-    public VetServiceMap(VetMap vetMap, SpecialtyMap specialtyMap) {
+
+    public VetMapRepository(SpecialtyMap specialtyMap) {
 		super();
-		this.vetMap = vetMap;
 		this.specialtyMap = specialtyMap;
 	}
 
 	@Override
     public Set<Vet> findAll() {
-        return this.vetMap.findAll();
+        return super.findAll();
     }
 
     @Override
     public void deleteById(Long id) {
-    	this.vetMap.deleteById(id);
+        super.deleteById(id);
     }
 
     @Override
     public void delete(Vet object) {
-    	this.vetMap.delete(object);
+        super.delete(object);
     }
 
     @Override
@@ -46,7 +43,8 @@ public class VetServiceMap implements VetService {
                     speciality.setId(savedSpecialty.getId());
                 }
             });
-            return this.vetMap.save(object);
+
+            return super.save(object);
         }
 
         return null;
@@ -54,6 +52,6 @@ public class VetServiceMap implements VetService {
 
     @Override
     public Vet findById(Long id) {
-        return this.vetMap.findById(id);
+        return super.findById(id);
     }
 }

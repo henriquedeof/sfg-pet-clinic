@@ -1,36 +1,45 @@
 package guru.springframework.sfgpetclinic.services.map;
 
-import guru.springframework.sfgpetclinic.model.Pet;
-import guru.springframework.sfgpetclinic.services.PetService;
-import org.springframework.stereotype.Service;
-
 import java.util.Set;
 
-@Service
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+import org.springframework.stereotype.Service;
 
-    @Override
+import guru.springframework.sfgpetclinic.model.Pet;
+import guru.springframework.sfgpetclinic.repositories.map.interfaces.PetMap;
+import guru.springframework.sfgpetclinic.services.PetService;
+
+@Service
+public class PetServiceMap implements PetService {
+	
+	private final PetMap petMap;
+	
+    public PetServiceMap(PetMap petMap) {
+		super();
+		this.petMap = petMap;
+	}
+
+	@Override
     public Set<Pet> findAll() {
-        return super.findAll();
+        return this.petMap.findAll();
     }
 
     @Override
     public void deleteById(Long id) {
-        super.deleteById(id);
+    	this.petMap.deleteById(id);
     }
 
     @Override
     public void delete(Pet object) {
-        super.delete(object);
+    	this.petMap.delete(object);
     }
 
     @Override
     public Pet save(Pet object) {
-        return super.save(object);
+        return this.petMap.save(object);
     }
 
     @Override
     public Pet findById(Long id) {
-        return super.findById(id);
+        return this.petMap.findById(id);
     }
 }
