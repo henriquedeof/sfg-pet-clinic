@@ -1,19 +1,18 @@
 package guru.springframework.sfgpetclinic.services.map;
 
-import java.util.Set;
-
-import org.springframework.stereotype.Service;
-
 import guru.springframework.sfgpetclinic.model.Speciality;
 import guru.springframework.sfgpetclinic.repositories.map.interfaces.SpecialtyMap;
 import guru.springframework.sfgpetclinic.services.SpecialtyService;
+import org.springframework.stereotype.Service;
+
+import java.util.Set;
 
 @Service
-public class SpecialtyServiceMap implements SpecialtyService {
+public class SpecialtyMapService implements SpecialtyService {
 	
 	private final SpecialtyMap specialMap;
 
-    public SpecialtyServiceMap(SpecialtyMap specialMap) {
+    public SpecialtyMapService(SpecialtyMap specialMap) {
 		super();
 		this.specialMap = specialMap;
 	}

@@ -1,19 +1,18 @@
 package guru.springframework.sfgpetclinic.services.map;
 
-import java.util.Set;
-
-import org.springframework.stereotype.Service;
-
 import guru.springframework.sfgpetclinic.model.Pet;
 import guru.springframework.sfgpetclinic.repositories.map.interfaces.PetMap;
 import guru.springframework.sfgpetclinic.services.PetService;
+import org.springframework.stereotype.Service;
+
+import java.util.Set;
 
 @Service
-public class PetServiceMap implements PetService {
+public class PetMapService implements PetService {
 	
 	private final PetMap petMap;
 	
-    public PetServiceMap(PetMap petMap) {
+    public PetMapService(PetMap petMap) {
 		super();
 		this.petMap = petMap;
 	}

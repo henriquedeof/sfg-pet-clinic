@@ -1,15 +1,14 @@
 package guru.springframework.sfgpetclinic.services.map;
 
-import java.util.Set;
-
-import org.springframework.stereotype.Service;
-
 import guru.springframework.sfgpetclinic.model.Owner;
 import guru.springframework.sfgpetclinic.repositories.map.interfaces.OwnerMap;
 import guru.springframework.sfgpetclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
+
+import java.util.Set;
 
 @Service
-public class OwnerServiceMap implements OwnerService {
+public class OwnerMapService implements OwnerService {
 
 	private final OwnerMap ownerMap;
 //	private final PetTypeMap petTypeMap;
@@ -21,7 +20,7 @@ public class OwnerServiceMap implements OwnerService {
 		return this.ownerMap.findByLastName(lastName);
 	}
 
-	public OwnerServiceMap(OwnerMap ownerMap) {
+	public OwnerMapService(OwnerMap ownerMap) {
 		super();
 		this.ownerMap = ownerMap;
 	}
