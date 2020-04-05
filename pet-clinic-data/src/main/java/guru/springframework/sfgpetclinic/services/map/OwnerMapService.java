@@ -3,11 +3,13 @@ package guru.springframework.sfgpetclinic.services.map;
 import guru.springframework.sfgpetclinic.model.Owner;
 import guru.springframework.sfgpetclinic.repositories.map.interfaces.OwnerMap;
 import guru.springframework.sfgpetclinic.services.OwnerService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"}) //This line is trying to use the Profile 'default' (if it does not exist) of 'map'.
 public class OwnerMapService implements OwnerService {
 
 	private final OwnerMap ownerMap;

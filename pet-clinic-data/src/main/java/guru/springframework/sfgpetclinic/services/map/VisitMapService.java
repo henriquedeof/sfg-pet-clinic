@@ -3,11 +3,13 @@ package guru.springframework.sfgpetclinic.services.map;
 import guru.springframework.sfgpetclinic.model.Visit;
 import guru.springframework.sfgpetclinic.repositories.map.interfaces.VisitMap;
 import guru.springframework.sfgpetclinic.services.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile({"default", "map"})
 public class VisitMapService implements VisitService {
 
     private final VisitMap visitMap;
@@ -33,7 +35,7 @@ public class VisitMapService implements VisitService {
 
     @Override
     public Visit save(Visit visit) {
-        return this.save(visit);
+        return visitMap.save(visit);
     }
 
     @Override

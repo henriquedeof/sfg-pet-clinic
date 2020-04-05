@@ -1,14 +1,13 @@
 package guru.springframework.sfgpetclinic.repositories.map;
 
-import java.util.Set;
-
-import org.springframework.stereotype.Repository;
-
 import guru.springframework.sfgpetclinic.model.Owner;
 import guru.springframework.sfgpetclinic.model.Pet;
 import guru.springframework.sfgpetclinic.repositories.map.interfaces.OwnerMap;
 import guru.springframework.sfgpetclinic.repositories.map.interfaces.PetMap;
 import guru.springframework.sfgpetclinic.repositories.map.interfaces.PetTypeMap;
+import org.springframework.stereotype.Repository;
+
+import java.util.Set;
 
 @Repository
 public class OwnerMapRepository extends AbstractMapRepository<Owner, Long> implements OwnerMap {
@@ -50,6 +49,7 @@ public class OwnerMapRepository extends AbstractMapRepository<Owner, Long> imple
 
     @Override
     public Owner save(Owner object) {
+        System.out.println("========================= SAVING OWNER - MAP =======================");
         if (object != null){
             if(object.getPets() != null){
                 object.getPets().forEach(pet -> {

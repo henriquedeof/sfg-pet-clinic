@@ -1,16 +1,15 @@
 package guru.springframework.sfgpetclinic.services.springdatajpa;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
-
 import guru.springframework.sfgpetclinic.model.Owner;
 import guru.springframework.sfgpetclinic.repositories.springdatajpa.OwnerRepository;
 import guru.springframework.sfgpetclinic.repositories.springdatajpa.PetRepository;
 import guru.springframework.sfgpetclinic.repositories.springdatajpa.PetTypeRepository;
 import guru.springframework.sfgpetclinic.services.OwnerService;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 @Profile("springdatajpa")//At this moment, I do not have an active profile (application.properties).
@@ -43,7 +42,7 @@ public class OwnerSDJpaService implements OwnerService{
 
 	@Override
 	public Owner save(Owner object) {
-		System.out.println("=============== SAVING OWNER ON JPA REPOSITORY ================");
+		System.out.println("========================= SAVING OWNER - SPRING DATA =======================");
 		return this.ownerRepository.save(object);
 	}
 
