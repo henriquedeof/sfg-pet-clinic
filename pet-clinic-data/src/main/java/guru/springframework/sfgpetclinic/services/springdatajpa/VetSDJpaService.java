@@ -13,7 +13,7 @@ import java.util.Set;
 @Profile("springdatajpa")
 public class VetSDJpaService implements VetService {
 
-    private VetRepository vetRepository;
+    private final VetRepository vetRepository;
 
     public VetSDJpaService(VetRepository vetRepository) {
         this.vetRepository = vetRepository;
@@ -28,7 +28,7 @@ public class VetSDJpaService implements VetService {
 
     @Override
     public Vet findById(Long aLong) {
-        return this.vetRepository.findById(aLong).get();
+        return this.vetRepository.findById(aLong).orElse(null);
     }
 
     @Override
