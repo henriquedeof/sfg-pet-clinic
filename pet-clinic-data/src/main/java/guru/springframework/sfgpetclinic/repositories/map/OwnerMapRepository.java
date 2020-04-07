@@ -30,6 +30,13 @@ public class OwnerMapRepository extends AbstractMapRepository<Owner, Long> imple
 			}
 		}
         return null;
+
+//    	Using stream Java 8
+//    	return this.findAll()
+//                .stream()
+//                .filter(owner -> owner.getLastName().equalsIgnoreCase(lastName))
+//                .findFirst()
+//                .orElse(null);
     }
 
     @Override
