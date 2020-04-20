@@ -22,5 +22,9 @@ public class BaseEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public boolean isNew() {
+        return this.id == null;
+    }
+
     //NOTE: Programmers like to create in this class attributes such as: creation_date, last_update, etc.
 }
