@@ -103,7 +103,7 @@ public class OwnerController {
         if (result.hasErrors()) {
             return VIEWS_OWNER_CREATE_OR_UPDATE_FORM;
         } else {
-            owner.setId(ownerId);
+            owner.setId(ownerId);//owner is not coming with its ID set because we defined this behavior in the method above: setAllowedFields.
             Owner savedOwner = ownerService.save(owner);
             return "redirect:/owners/" + savedOwner.getId();
         }
